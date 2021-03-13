@@ -9,7 +9,7 @@ const rimraf = require('rimraf')
 
 //Variables
 const app = express();
-const port = 5500;
+const port = 5500
 
 
 //Set up the server
@@ -91,7 +91,7 @@ app.get("/api/image/", (req, res) => {
 //Get method to return every record in the database
 
 //Listen to traffic on the port
-app.listen(port, () => console.log(`listening on port ${port}`))
+app.listen(process.env.PORT || port, () => console.log(`listening on port ${port}`))
 
 
 
