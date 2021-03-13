@@ -8,18 +8,15 @@ function resetChain() {
         $.ajax({
             type: 'POST',
             url: 'https://inspirations-trace.herokuapp.com/api/caption',
-            data: data
+            data: data,
+            success: (id) => {
+                console.log('It worked!')
+                sessionStorage.setItem('last_id', id)
+                window.location.href = 'index.html'
+            },
+            error: (error) => {
+                console.log(error)
+            }
         })
-        .success((id) => {
-            console.log('It worked!')
-            sessionStorage.setItem('last_id', id)
-            window.location.href = 'index.html'
-        })
-        .error((error) => {
-            console.lof(error)
-        })
-    }
-    else {
-        //Do Something Different
     }
 }

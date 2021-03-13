@@ -4,32 +4,30 @@ window.addEventListener('load', () => {
     $.ajax({
             type: 'GET',
             url: 'https://inspirations-trace.herokuapp.com/api/latest',
-        })
-        .success((data) => {
-            latest = JSON.parse(data)[0]
-            console.log(latest)
-            if (latest.nextImage == null) {
-                document.getElementById('caption').innerText = latest.name
-                document.getElementById('createCanvas').style.display = "block"
-            } else {
-                $.ajax({
+            success: (data) => {
+                latest = JSON.parse(data)[0]
+                console.log(latest)
+                if (latest.nextImage == null) {
+                    document.getElementById('caption').innerText = latest.name
+                    document.getElementById('createCanvas').style.display = "block"
+                } else {
+                    $.ajax({
                         type: 'GET',
                         contentType: 'application/json',
                         url: 'https://inspirations-trace.herokuapp.com/api/image/',
                         data: {
                             image_name: latest.nextImage
+                        },
+                        success: (data1) => {
+                            const b64image = 'data:image/png;base64,' + data1.image
+                            document.getElementById("latestImage").src = b64image
                         }
-                    })
-                    .success((data1) => {
-                        const b64image = 'data:image/png;base64,' + data1.image
-                        document.getElementById("latestImage").src = b64image
                     })
                 document.getElementById('createCaption').style.display = "block"
             }
-        })
+        }
+    })
 })
-
-
 
 const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext("2d");
@@ -109,13 +107,8 @@ function save_image() {
         type: 'POST',
         url: 'https://inspirations-trace.herokuapp.com/api/image',
         data: encodeURIComponent(dataUrl)
-
     });
     document.location.reload(true);
-
-    //     var image = new Image();
-    //     image.src = dataUrl;
-    // document.body.appendChild(image);
 }
 
 function save_caption() {
@@ -124,15 +117,15 @@ function save_caption() {
     $.ajax({
             type: 'POST',
             url: 'https://inspirations-trace.herokuapp.com/api/caption',
-            data: data
-        })
-        .success((id) => {
-            console.log('It worked!')
-            sessionStorage.setItem('last_id', id)
-            document.location.reload(true);
-        })
-        .error((error) => {
-            console.lof(error)
+            data: data,
+            success: (id) => {
+                console.log('It worked!')
+                sessionStorage.setItem('last_id', id)
+                document.location.reload(true);
+            },
+            error: (error) => {
+                console.log(error);
+            }
         })
 }
 
