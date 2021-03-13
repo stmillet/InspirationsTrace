@@ -93,31 +93,43 @@ function undo_last() {
 }
 
 function save_image() {
-    var dataUrl = canvas.toDataURL('image/png')
-    $.ajax({
-        type: 'POST',
-        url: 'https://inspirations-trace.herokuapp.com/api/image',
-        data: encodeURIComponent(dataUrl)
-    });
-    document.location.reload(true);
+    if (index !== -1) {
+        var dataUrl = canvas.toDataURL('image/png')
+        $.ajax({
+            type: 'POST',
+            url: 'https://inspirations-trace.herokuapp.com/api/image',
+            data: encodeURIComponent(dataUrl)
+        });
+        document.location.reload(true);
+    }
+    else {
+        alert('The drawing is empty. Plese draw something before submitting.')
+    }
+    
 }
 
 function save_caption() {
     const caption = document.getElementById('nextCaption').value;
-    const data = {name: caption}
-    $.ajax({
-            type: 'POST',
-            url: 'https://inspirations-trace.herokuapp.com/api/caption',
-            data: data,
-            success: (id) => {
-                console.log('It worked!')
-                sessionStorage.setItem('last_id', id)
-                document.location.reload(true);
-            },
-            error: (error) => {
-                console.log(error);
-            }
-        })
+    if (caption !== "") {
+
+        const data = {name: caption}
+        $.ajax({
+                type: 'POST',
+                url: 'https://inspirations-trace.herokuapp.com/api/caption',
+                data: data,
+                success: (id) => {
+                    console.log('It worked!')
+                    sessionStorage.setItem('last_id', id)
+                    document.location.reload(true);
+                },
+                error: (error) => {
+                    console.log(error);
+                }
+            })
+    }
+    else {
+        alert("Caption cannot be empty.")
+    }
 }
 
 function updateCount(value) {

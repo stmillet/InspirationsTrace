@@ -68,9 +68,6 @@ app.get("/api/latest", (req, res) => {
             res.end(JSON.stringify(data1))
         })
 })
-
-//Get method to return every record in the database
-
 //Listen to traffic on the port
 app.listen(process.env.PORT || port, () => console.log(`listening on port ${port}`))
 
