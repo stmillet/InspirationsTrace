@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="https://use.typekit.net/ogs6lxk.css">
+  <title>Canvas</title>
+</head>
+<body>
+  
+  <div id="createCanvas" style="display: none" class="field">
+    <div class="instructionBox" style="transform: translate(320px, 35px); z-index: 400;">Test</div>
+    <div class="instructionBox" style="transform: translate(325px, 0px); z-index: 410;">Test Again  </div>
+    <div class="instructionBox" style="transform: translate(330px, -35px); z-index: 420;">ILLUSTRATE THE CAPTION BELOW</div>
+    <div class="captionDiv">
+      <h3 
+        id="caption" 
+        style="font-family: ibm-plex-sans; font-style: italic; padding: 10px; text-align: left;"
+        ></h3>
+    </div>
+    <div class="canvasDiv">
+      <canvas id="canvas"></canvas>
+    </div>
+    <div class="tools">
+      <button 
+        type="button" 
+        class="button" 
+        onClick="undo_last()"
+        style="transform: translate(-190px, -30px); z-index: 450;">UNDO</button>
+      <button 
+        type="button" 
+        class="button" 
+        onClick="clear_canvas()"
+        style="transform: translate(-170px, -30px); z-index: 450;">CLEAR</button>
+      <button 
+        type="button" 
+        class="button" 
+        onClick="save_image()"
+        style="transform: translate(190px, -30px);  z-index: 450;">SUBMIT<span style="font-size: 16pt;">&#187</span></button>
+    </div>
+    <div class="tools">
+      <button 
+        type="button" 
+        class="button" 
+        style="transform: translate(-195px, -90px); z-index: 425;">UNDO</button>
+      <button 
+        type="button" 
+        class="button" 
+        style="transform: translate(-175px, -90px); z-index: 425;">CLEAR</button>
+        <button 
+        type="button" 
+        class="button" 
+        style="transform: translate(185px, -90px); z-index: 425;">SUBMIT<span style="font-size: 16pt;">&#187</span></button>
+    </div>
+  </div>
+  <div class="tools">
+    <button 
+      type="button" 
+      class="button" 
+      style="transform: translate(-200px, -150px); z-index: 400;">UNDO</button>
+    <button 
+      type="button" 
+      class="button" 
+      style="transform: translate(-180px, -150px); z-index: 400;">CLEAR</button>
+      <button 
+      type="button" 
+      class="button" 
+      style="transform: translate(180px, -150px); z-index: 400;">SUBMIT<span style="font-size: 16pt;">&#187</span></button>
+  </div>
+  </div>
+
+
+  <div id="createCaption" style="display: none" class="field">
+    <div class="instructionBox" style="transform: translate(320px, 0px); z-index: 400;">Test</div>
+    <div class="instructionBox" style="transform: translate(325px, -35px); z-index: 410;">Test Again  </div>
+    <div class="instructionBox" style="transform: translate(330px, -70px); z-index: 420;">CAPTION THE DRAWING BELOW</div>
+    <div id="imageHolder" class="canvasDiv">
+      <img id="latestImage" />
+    </div>
+    <div class="canvasDiv">
+      <input id="nextCaption" type="text" onkeyup="updateCount(this.value)" onkeydown="updateCount(this.value)" maxlength="100"/>
+    </div>
+    <div class="tools">
+      <button 
+        type="button" 
+        class="button" 
+        onClick="save_caption()"
+        style="transform: translate(330px, -30px);  z-index: 450;">SUBMIT<span style="font-size: 16pt;">&#187</span></button>
+    </div>
+    <div class="tools">
+        <button 
+        type="button" 
+        class="button" 
+        style="transform: translate(325px, -90px); z-index: 425;">SUBMIT<span style="font-size: 16pt;">&#187</span></button>
+    </div>
+    <div class="tools">
+      <button 
+      type="button" 
+      class="button" 
+      style="transform: translate(320px, -150px); z-index: 400;">SUBMIT<span style="font-size: 16pt;">&#187</span></button>
+    </div>
+    <div id="wordCounter" class="tools">0/100</div>
+  </div>
+  
+
+  <script src="js/canvas.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+</body>
+</html>
