@@ -7,7 +7,7 @@ function resetChain() {
         }
         $.ajax({
             type: 'POST',
-            url: 'http://localhost:5500/api/caption',
+            url: 'https://inspirations-trace.herokuapp.com/api/caption',
             data: data
         })
         .success((id) => {
