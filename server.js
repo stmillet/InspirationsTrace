@@ -26,11 +26,6 @@ app.post("/api/caption", (req, res) => {
     //If statement to determine if we are reseting the database first or not.
     console.log('this is a test')
     if (req.body.reset === 'true') {
-        const path ='./data/images'
-        rimraf(path, () => {
-            fs.mkdir(path, ()=> console.log('made folder'))
-        })
-        console.log('deleted')
         Captions.del()
     }    
 
@@ -51,19 +46,16 @@ app.post("/api/image", (req, res) => {
     //Insert the name of the file into the database
     Captions.getLatest()
         .then((latestCaption) => {
+            let data = JSON.stringify(req.body)
+            data = data.replace(/[{}]/g, '');
+            data = data.replace(/"|:/g, '')
+            data = data.replace(/data[A-Za-z-+\/]+;base64,/g, '')
             const imageNum = latestCaption[0].id
             const imageName = `${imageNum}caption.png`
-            const imageDetails = {id: imageNum, fileName: imageName}
+            const imageDetails = {id: imageNum, fileName: imageName, base64: data}
             Captions.update(imageDetails)
                 .then((id) => {
                     //Save the file on the server
-                    let data = JSON.stringify(req.body)
-                    data = data.replace(/[{}]/g, '');
-                    data = data.replace(/"|:/g, '')
-                    data = data.replace(/data[A-Za-z-+\/]+;base64,/g, '')
-                    const buffer = Buffer.from(data, "base64")
-
-                    fs.writeFileSync(`./data/images/${imageName}`, buffer)
                     res.end('File Saved')
                 })
         })
@@ -75,17 +67,6 @@ app.get("/api/latest", (req, res) => {
         .then(data1 => {
             res.end(JSON.stringify(data1))
         })
-})
-
-app.get("/api/image/", (req, res) => {
-    const data = req.query.image_name;
-    console.log(data)
-    
-    const base64 = fs.readFileSync(`/Users/spencermillett/ColeWebsite/Node/data/images/${data}`, "base64")
-    const image = {
-        image: encodeURI(base64)
-    }
-    res.send(image)
 })
 
 //Get method to return every record in the database

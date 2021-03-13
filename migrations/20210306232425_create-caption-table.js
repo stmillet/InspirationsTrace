@@ -5,6 +5,7 @@ exports.up = function(knex) {
     table.text('name')
         .notNullable()
     table.text('nextImage', 64)
+    table.text('base64')
   })
 };
 

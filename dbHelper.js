@@ -11,7 +11,7 @@ async function add(caption) {
 async function update(imageName) {
     const id = await db('captions')
         .where({id: imageName.id})
-        .update({nextImage: imageName.fileName}, ['id'])
+        .update({nextImage: imageName.fileName, base64:imageName.base64}, ['id'])
     return id
 }
 

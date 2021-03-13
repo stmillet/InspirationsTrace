@@ -10,20 +10,11 @@ window.addEventListener('load', () => {
                 if (latest.nextImage == null) {
                     document.getElementById('caption').innerText = latest.name
                     document.getElementById('createCanvas').style.display = "block"
-                } else {
-                    $.ajax({
-                        type: 'GET',
-                        contentType: 'application/json',
-                        url: 'https://inspirations-trace.herokuapp.com/api/image/',
-                        data: {
-                            image_name: latest.nextImage
-                        },
-                        success: (data1) => {
-                            const b64image = 'data:image/png;base64,' + data1.image
-                            document.getElementById("latestImage").src = b64image
-                        }
-                    })
-                document.getElementById('createCaption').style.display = "block"
+                } 
+                else {
+                    const b64image = 'data:image/png;base64,' + latest.base64
+                    document.getElementById("latestImage").src = b64image
+                    document.getElementById('createCaption').style.display = "block"
             }
         }
     })
