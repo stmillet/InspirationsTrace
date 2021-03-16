@@ -1,6 +1,15 @@
+body {
+    position: absolute;
+    margin: 0px;
+    overflow: hidden;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+}
+
 body{
     background-image: url(../images/ipadBack.jpg);
-    background-size: cover;
+    background-size: cover;   
 }
 
 .tools {
