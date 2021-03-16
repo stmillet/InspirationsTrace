@@ -40,40 +40,47 @@ let index = -1;
 function startPosition(e) {
     console.log('started')
     painting = true;
-    draw(e)
+    ctx.beginPath()
+    ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop)
+    event.preventDefault()
 }
 
 function finishedPosition(e) {
     console.log('finished')
-    painting = false;
-    ctx.beginPath();
-    if (e.type != 'mouseout') {
-        restore_array.push(ctx.getImageData(0, 0, canvas.width, canvas.height))
-        index += 1
-        console.log(restore_array)
+    if (painting) {
+        ctx.stroke()
+        ctx.closePath()
+        painting = false;
+        ctx.beginPath();
+        if (e.type != 'mouseout') {
+            restore_array.push(ctx.getImageData(0, 0, canvas.width, canvas.height))
+            index += 1
+            console.log(restore_array)
+        }
     }
+    event.preventDefault()
 }
 
 function draw(e) {
     
-    if (!painting) return;
-    console.log('drawing')
-    ctx.lineWidth = 10;
-    ctx.lineCap = 'round';
-
-    ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
-    ctx.stroke()
-    ctx.beginPath();
-    ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop)
+    if (painting) {
+        console.log('drawing')
+        ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+        ctx.lineWidth = 10;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = "round"
+        ctx.stroke()
+    }
+    event.preventDefault()
 }
 //EventListeners
-canvas.addEventListener('touchstart', startPosition)
-canvas.addEventListener('touchmove', draw)
+canvas.addEventListener('touchstart', startPosition, false)
+canvas.addEventListener('touchmove', draw, false)
 canvas.addEventListener('touchend', finishedPosition)
 canvas.addEventListener('mousedown', startPosition)
-canvas.addEventListener('mouseup', finishedPosition)
-//canvas.addEventListener('mouseout', finishedPosition)
 canvas.addEventListener('mousemove', draw)
+canvas.addEventListener('mouseup', finishedPosition)
+
 
 
 function clear_canvas() {
