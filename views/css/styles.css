@@ -1,5 +1,5 @@
 body {
-    position: absolute;
+    position: fixed;
     margin: 0px;
     overflow: hidden;
     top: 0px;
