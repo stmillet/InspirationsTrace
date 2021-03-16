@@ -38,11 +38,13 @@ let restore_array = [];
 let index = -1;
 
 function startPosition(e) {
+    console.log('started')
     painting = true;
     draw(e)
 }
 
 function finishedPosition(e) {
+    console.log('finished')
     painting = false;
     ctx.beginPath();
     if (e.type != 'mouseout') {
@@ -53,7 +55,9 @@ function finishedPosition(e) {
 }
 
 function draw(e) {
+    
     if (!painting) return;
+    console.log('drawing')
     ctx.lineWidth = 10;
     ctx.lineCap = 'round';
 
