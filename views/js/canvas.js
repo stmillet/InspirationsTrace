@@ -25,7 +25,7 @@ const ctx = canvas.getContext("2d");
 
 //Resizing
 canvas.height = window.innerHeight - 300;
-canvas.width = window.innerWidth - 600;
+canvas.width = window.innerWidth - 182;
 
 
 //Variables
