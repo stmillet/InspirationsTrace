@@ -42,6 +42,7 @@ body{
 #canvas {
     border: 2px black solid;
     cursor: pointer;
+    background-color: white;
 }
 
 #canvasbody {
