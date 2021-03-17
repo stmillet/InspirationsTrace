@@ -60,11 +60,8 @@ body{
     color: black;
     font-size: 15pt;
     align-self: center;
-    width: 100px;
-    height: 40px;
-    border: 2px solid black;
+    height: 55px;
     cursor: pointer;
-    background: white;
     font-weight: bold;
     margin: 0 15px;
 }
