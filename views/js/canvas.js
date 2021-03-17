@@ -3,18 +3,22 @@ window.addEventListener('load', () => {
     let latest;
     $.ajax({
             type: 'GET',
-            url: 'https://inspirations-trace.herokuapp.com/api/latest',
+            url: 'http://localhost:5500/api/latest',
             success: (data) => {
                 latest = JSON.parse(data)[0]
                 console.log(latest)
                 if (latest.nextImage == null) {
                     document.getElementById('caption').innerText = latest.name
-                    document.getElementById('createCanvas').style.display = "block"
+                    //document.getElementById('theBod').style.backgroundImage = "url('./images/IpadDrawBack.jpg')"
+                    //document.getElementById("theBod").style.backgroundSize = "cover"
+                    //document.getElementById('createCanvas').style.display = "block"
                 } 
                 else {
                     const b64image = 'data:image/png;base64,' + latest.base64
                     document.getElementById("latestImage").src = b64image
-                    document.getElementById('createCaption').style.display = "block"
+                    //document.getElementById("theBod").style.backgroundImage = "url('./images/IpadCaptionBack.jpg')"
+                    //document.getElementById("theBod").style.backgroundSize = "cover"
+                    //document.getElementById('createCaption').style.display = "block"
             }
         }
     })
@@ -141,7 +145,7 @@ function save_image() {
         var dataUrl = canvas.toDataURL('image/png')
         $.ajax({
             type: 'POST',
-            url: 'https://inspirations-trace.herokuapp.com/api/image',
+            url: 'http://localhost:5500/api/image',
             data: encodeURIComponent(dataUrl)
         });
         document.location.reload(true);
@@ -159,7 +163,7 @@ function save_caption() {
         const data = {name: caption}
         $.ajax({
                 type: 'POST',
-                url: 'https://inspirations-trace.herokuapp.com/api/caption',
+                url: 'http://localhost:5500/api/caption',
                 data: data,
                 success: (id) => {
                     console.log('It worked!')

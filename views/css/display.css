@@ -2,3 +2,37 @@ body {
     background-image: url(../images/displayBack.jpg);
     background-size: cover;
 }
+
+#grid {
+    padding-top: 6em;
+    padding-left:7em;
+    padding-right:7em;
+    font-family: ibm-plex-sans;
+    font-style: italic;
+    font-size: 8.5pt;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-row-gap: 1.1em;
+    grid-auto-rows: 10.2em;
+    justify-items: center;
+    align-items: center;
+
+}
+
+.text {
+    padding-top:1.5em;
+    padding-bottom: 1.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    line-height:120%;
+    display: table-cell;
+}
+
+.image {
+    margin-left: auto;
+    margin-right: auto;
+}
+img {
+    
+    width: 9.8em; 
+}
