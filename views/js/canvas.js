@@ -9,16 +9,12 @@ window.addEventListener('load', () => {
                 console.log(latest)
                 if (latest.nextImage == null) {
                     document.getElementById('caption').innerText = latest.name
-                    //document.getElementById('theBod').style.backgroundImage = "url('./images/IpadDrawBack.jpg')"
-                    //document.getElementById("theBod").style.backgroundSize = "cover"
-                    //document.getElementById('createCanvas').style.display = "block"
+                    document.getElementById('createCanvas').style.display = "block"
                 } 
                 else {
                     const b64image = 'data:image/png;base64,' + latest.base64
                     document.getElementById("latestImage").src = b64image
-                    //document.getElementById("theBod").style.backgroundImage = "url('./images/IpadCaptionBack.jpg')"
-                    //document.getElementById("theBod").style.backgroundSize = "cover"
-                    //document.getElementById('createCaption').style.display = "block"
+                    document.getElementById('createCaption').style.display = "block"
             }
         }
     })

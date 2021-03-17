@@ -74,14 +74,12 @@
 
 
   <div id="createCaption" style="display: none" class="field">
-    <div class="instructionBox" style="transform: translate(320px, 0px); z-index: 400;">Test</div>
-    <div class="instructionBox" style="transform: translate(325px, -35px); z-index: 410;">Test Again  </div>
-    <div class="instructionBox" style="transform: translate(330px, -70px); z-index: 420;">CAPTION THE DRAWING BELOW</div>
     <div id="imageHolder" class="canvasDiv">
-      <img id="latestImage" />
+      <img id='background' src="images/CaptionBox.png"/>
+      <img id="latestImage" style="display: none"/>
     </div>
     <div class="canvasDiv">
-      <input id="nextCaption" type="text" onkeyup="updateCount(this.value)" onkeydown="updateCount(this.value)" maxlength="100"/>
+      <input id="nextCaption" type="text" onkeyup="updateCount(this.value)" onkeydown="updateCount(this.value)" maxlength="100" style="display: none;"/>
     </div>
     <div class="tools">
       <button 
@@ -89,18 +87,6 @@
         class="button" 
         onClick="save_caption()"
         style="transform: translate(330px, -30px);  z-index: 450;">SUBMIT<span style="font-size: 16pt;">&#187</span></button>
-    </div>
-    <div class="tools">
-        <button 
-        type="button" 
-        class="button" 
-        style="transform: translate(325px, -90px); z-index: 425;">SUBMIT<span style="font-size: 16pt;">&#187</span></button>
-    </div>
-    <div class="tools">
-      <button 
-      type="button" 
-      class="button" 
-      style="transform: translate(320px, -150px); z-index: 400;">SUBMIT<span style="font-size: 16pt;">&#187</span></button>
     </div>
     <div id="wordCounter" class="tools">0/100</div>
   </div>

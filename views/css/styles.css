@@ -1,5 +1,5 @@
 body {
-    position: fixed;
+    position: absolute;
     margin: 0px;
     overflow: hidden;
     top: 0px;
@@ -8,7 +8,7 @@ body {
 }
 
 body{
-    background-image: url(../images/IpadCaptionBack.jpg);
+    background-image: url(../images/ipadBack.jpg);
     background-size: cover;   
 }
 
@@ -19,7 +19,12 @@ body{
     margin-top: 15px;
 }
 
+#background {
+    display: flex;
+    padding-top: 176px;
+    width: 75em;
 
+}
 
 .captionDiv {
     
