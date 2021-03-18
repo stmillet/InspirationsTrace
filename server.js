@@ -4,7 +4,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const fs = require('fs')
 const Captions = require('./dbHelper')
-const rimraf = require('rimraf')
+const request = require('request')
 
 
 //Variables
@@ -67,6 +67,24 @@ app.get("/api/latest", (req, res) => {
         .then(data1 => {
             res.end(JSON.stringify(data1))
         })
+})
+
+//Update local database with all the online submittions
+app.get("/api/api/updatedb", (req, res) => {
+    request('https://inspirations-trace.herokuapp.com/api/latest', function(error, response, body) {
+        const data = JSON.parse(body)
+        Captions.del()
+            .then(() => {
+                data.forEach((item) => {
+                    Captions.insertAll(item)
+                        .then(id => {
+                            console.log(id)
+                        })
+                })
+                res.end()
+            })
+        
+    });
 })
 //Listen to traffic on the port
 app.listen(process.env.PORT || port, () => console.log(`listening on port ${port}`))

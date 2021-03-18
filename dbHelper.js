@@ -28,9 +28,18 @@ async function getLatest() {
     return row
 }
 
+async function insertAll(item) {
+    const id = await db('captions').insert({
+        id: item.id, 
+        name: item.name, 
+        nextImage: item.nextImage, base64: 
+        item.base64})
+    return id;
+}
 module.exports = {
     add,
     update,
     del,
     getLatest,
+    insertAll,
 }
