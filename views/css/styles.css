@@ -31,7 +31,7 @@ body{
     position: fixed;
     height:55px;
     top: 75px;
-    transform: translate(-375px, 0px);
+    transform: translate(-350px, 0px);
 }
 
 .captionDiv {
