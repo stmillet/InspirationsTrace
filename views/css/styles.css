@@ -109,7 +109,10 @@ h3 {
     text-align: right;
 }
 #latestImage {
+    position: absolute;
     border: 2px solid black;
+    width: 1120px;
+    transform: translate(0px, 150px)
 }
 
 #nextCaption {
@@ -118,7 +121,7 @@ h3 {
     border: none;
     font-family: ibm-plex-sans;
     font-style: italic;
-    font-size: 16px;
+    font-size: 22px;
     height: 106px;
     width: 82%;
     padding-left: 10px;
