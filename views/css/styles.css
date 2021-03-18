@@ -61,9 +61,12 @@ body{
 }
 
 #canvas {
-    border: 2px black solid;
+    position: absolute;
     cursor: pointer;
     background-color: white;
+    width: 83.39%;
+    height: 66.5%;
+    transform: translate(0px, 272px)
 }
 
 #canvasbody {
