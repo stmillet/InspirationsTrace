@@ -115,11 +115,11 @@ h3 {
 #nextCaption {
     position: fixed;
     fill: none;
-    boder: none;
+    border: none;
     font-family: ibm-plex-sans;
     font-style: italic;
     font-size: 16px;
-    height: 110px;
+    height: 108px;
     width: 82%;
     padding-left: 10px;
     padding-right: 10px;
