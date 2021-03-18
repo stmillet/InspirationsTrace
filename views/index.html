@@ -10,7 +10,7 @@
 </head>
 <body id='theBod'>
   
-  <div id="createCanvas" style="display: none" class="field">
+  <div id="createCanvas" style="display: none;" class="field">
     <div class="captionDiv">
       <img class="topper" src='images/CanvasTop.png'>
       <h3 
@@ -18,7 +18,7 @@
         >You look at your plate and your chicken's slowly rotting into something that looks like cheese.</h3>
     </div>
     <div class="canvasDiv">
-      <img id='background' src="images/DrawBox.png"/>
+      <img id='backgroundCan' src="images/DrawBox.png"/>
       <canvas id="canvas">
         Your browser does not support canvas element.
       </canvas>
@@ -46,20 +46,22 @@
   </div>
 
 
-  <div id="createCaption" style="display: block" class="field">
-    <div id="imageHolder" class="canvasDiv">
-      <img id='background' src="images/CaptionBox.png"/>
-      <img id="latestImage" style="display: none"/>
-    </div>
+  <div id="createCaption" style="display: block;" class="field">
+    <div class='captionDiv'>
+      <img class="topper" src='images/CaptionTop.png'>
+    </div>  
     <div class="canvasDiv">
+      <img id='backgroundCap' src="images/CaptionBox.png"/>
+      <img id="latestImage" style="display: none"/>
       <input id="nextCaption" type="text" onkeyup="updateCount(this.value)" onkeydown="updateCount(this.value)" maxlength="100" style="display: none;"/>
     </div>
     <div class="tools">
-      <button 
-        type="button" 
+      <input
+        type="image"
+        src="images/submit.png" 
         class="button" 
         onClick="save_caption()"
-        style="transform: translate(330px, -30px);  z-index: 450;">SUBMIT<span style="font-size: 16pt;">&#187</span></button>
+        style="transform: translate(475px, -150px);  z-index: 450;"></input>
     </div>
     <div id="wordCounter" class="tools">0/100</div>
   </div>
