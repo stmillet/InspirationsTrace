@@ -119,23 +119,21 @@ h3 {
     font-family: ibm-plex-sans;
     font-style: italic;
     font-size: 16px;
-    height: 108px;
+    height: 106px;
     width: 82%;
     padding-left: 10px;
     padding-right: 10px;
     transform: translate(0px, 840px);
-    z-index: 200;
 }
 
 #wordCounter {
-    display: flex;
-    justify-content: center;
+    position: absolute;
     width: 5%;
     font-family: ibm-plex-sans;
     align-content: right;
-    margin-top: -280px;
+    margin-top: -215px;
     margin-left: 1175px;
-    z-index: 1000;
+    z-index: 2;
 
 
 }
