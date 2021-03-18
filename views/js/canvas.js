@@ -57,8 +57,8 @@ function startup() {
   
       if (idx >= 0) {
         ctx.beginPath();
-        ctx.moveTo(ongoingTouches[idx].pageX - el.offsetLeft, ongoingTouches[idx].pageY - el.offsetTop - 272);
-        ctx.lineTo(touches[i].pageX - el.offsetLeft, touches[i].pageY - el.offsetTop - 272);
+        ctx.moveTo(ongoingTouches[idx].pageX - el.offsetLeft + 20, ongoingTouches[idx].pageY - el.offsetTop - 260);
+        ctx.lineTo(touches[i].pageX - el.offsetLeft +20, touches[i].pageY - el.offsetTop - 260);
         ctx.lineWidth = 10;
         ctx.lineCap = 'round'
         ctx.stroke();
