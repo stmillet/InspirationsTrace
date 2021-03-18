@@ -57,7 +57,7 @@ function startup() {
   
       if (idx >= 0) {
         ctx.beginPath();
-        ctx.moveTo(ongoingTouches[idx].pageX - el.offsetLeft + 20, ongoingTouches[idx].pageY - el.offsetTop - 260);
+        ctx.moveTo(ongoingTouches[idx].pageX - el.offsetLeft + 22, ongoingTouches[idx].pageY - el.offsetTop - 258);
         ctx.lineTo(touches[i].pageX - el.offsetLeft +22, touches[i].pageY - el.offsetTop - 258);
         ctx.lineWidth = 10;
         ctx.lineCap = 'round'
