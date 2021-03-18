@@ -26,27 +26,32 @@ body{
     height: 7%;
 
 }
-#caption {
-    position: fixed;
-    font-family: ibm-plex-sans; 
-    font-style: italic; 
-    position: fixed;
-    text-align: left;
-    transform: translate(0px, 175px);
-    width: 75%;
-}
+
 .topper {
     position: fixed;
     height:55px;
     top: 75px;
     transform: translate(-350px, 0px);
 }
-
+#caption {
+    position: absolute; 
+    font-family: ibm-plex-sans; 
+    font-style: italic; 
+    padding: 10px; 
+    text-align: left;
+    width: 75%;
+    transform: translate(0px, 175px);
+}
 .captionDiv {
     
     display:flex;
     justify-content: center;
+    background-color: white;
+    border: 2px black solid;
+    border-bottom: none;
+    width: 57.6%;
     margin: 0 auto;
+    margin-top: -50px;
 }
 
 .canvasDiv {
