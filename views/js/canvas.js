@@ -59,7 +59,7 @@ function startup() {
         ctx.beginPath();
         ctx.moveTo(ongoingTouches[idx].pageX - el.offsetLeft + 22, ongoingTouches[idx].pageY - el.offsetTop - 258);
         ctx.lineTo(touches[i].pageX - el.offsetLeft +22, touches[i].pageY - el.offsetTop - 258);
-        ctx.lineWidth = 10;
+        ctx.lineWidth = 8;
         ctx.lineCap = 'round'
         ctx.stroke();
         ongoingTouches.splice(idx, 1, copyTouch(touches[i]));  // swap in the new touch record
