@@ -3,9 +3,9 @@ window.addEventListener('load', () => {
     let latest;
     $.ajax({
             type: 'GET',
-            //https://inspirations-trace.herokuapp.com
+            //http://localhost:5500
             //
-            url: 'https://inspirations-trace.herokuapp.com/api/latest',
+            url: 'http://localhost:5500/api/latest',
             success: (data) => {
                 latest = JSON.parse(data)[0]
                 if (latest.nextImage == null) {
@@ -142,7 +142,7 @@ function save_image() {
         var dataUrl = canvas.toDataURL('image/png')
         $.ajax({
             type: 'POST',
-            url: 'https://inspirations-trace.herokuapp.com/api/image',
+            url: 'http://localhost:5500/api/image',
             data: encodeURIComponent(dataUrl)
         });
         document.location.reload(true);
@@ -160,7 +160,7 @@ function save_caption() {
         const data = {name: caption}
         $.ajax({
                 type: 'POST',
-                url: 'https://inspirations-trace.herokuapp.com/api/caption',
+                url: 'http://localhost:5500/api/caption',
                 data: data,
                 success: (id) => {
                     console.log('It worked!')
