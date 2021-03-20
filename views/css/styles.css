@@ -42,6 +42,12 @@ body{
     top: 75px;
     transform: translate(-350px, 0px);
 }
+.topperCap {
+    position: fixed;
+    height:55px;
+    top: 75px;
+    transform: translate(-355px, 0px);
+}
 #caption {
     position: absolute; 
     font-family: ibm-plex-sans; 
