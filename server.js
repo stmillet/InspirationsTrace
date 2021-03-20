@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 const fs = require('fs')
 const Captions = require('./dbHelper')
 const request = require('request')
+const Amazon = require('./aws')
 
 
 //Variables
@@ -32,8 +33,13 @@ app.post("/api/caption", (req, res) => {
     //Add Record to the database and then return the id
     Captions.add(req.body)
     .then(caption => {
-        console.log(caption)
+        const details = {
+            id: caption,
+            caption: req.body.name
+        }
+        Amazon.uploadCaption(details)
         res.status(200).json(caption)
+
     })
     .catch(error => {
         res.status(500).json({message: 'cannot add caption'})
@@ -53,6 +59,7 @@ app.post("/api/image", (req, res) => {
             const imageNum = latestCaption[0].id
             const imageName = `${imageNum}caption.png`
             const imageDetails = {id: imageNum, fileName: imageName, base64: data}
+            Amazon.uploadImage(imageDetails)
             Captions.update(imageDetails)
                 .then((id) => {
                     //Save the file on the server

@@ -23,8 +23,7 @@ async function del() {
 async function getLatest() {
     const row = await db.select()
                     .table('captions')
-                    .orderBy('id', 'desc')
-                    
+                    .orderBy('id', 'desc')           
     return row
 }
 
