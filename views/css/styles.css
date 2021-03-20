@@ -129,8 +129,9 @@ h3 {
     font-size: 22px;
     height: 104px;
     width: 82%;
-    padding-left: 10px;
-    padding-right: 40px;
+    padding-left: 40px;
+    padding-right: 10px;
+    box-sizing: border-box;
     transform: translate(0px, 840px);
 }
 
