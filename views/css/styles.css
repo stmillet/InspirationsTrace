@@ -51,6 +51,7 @@ body{
 #caption {
     position: absolute; 
     font-family: ibm-plex-sans; 
+    font-size: 22px;
     font-style: italic; 
     padding: 10px; 
     text-align: left;
@@ -129,7 +130,7 @@ h3 {
     font-size: 22px;
     height: 110px;
     width: 83%;
-    padding-left: 30px;
+    padding-left: 33px;
     padding-right: 10px;
     box-sizing: border-box;
     transform: translate(0px, 840px);
