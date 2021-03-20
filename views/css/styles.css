@@ -46,7 +46,7 @@ body{
     position: fixed;
     height:55px;
     top: 75px;
-    transform: translate(-355px, 0px);
+    transform: translate(-360px, 0px);
 }
 #caption {
     position: absolute; 
