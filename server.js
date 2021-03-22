@@ -57,7 +57,7 @@ app.post("/api/image", (req, res) => {
             data = data.replace(/"|:/g, '')
             data = data.replace(/data[A-Za-z-+\/]+;base64,/g, '')
             const imageNum = latestCaption[0].id
-            const imageName = `${imageNum}caption.png`
+            const imageName = `${imageNum}caption.jpg`
             const imageDetails = {id: imageNum, fileName: imageName, base64: data}
             Amazon.uploadImage(imageDetails)
             Captions.update(imageDetails)

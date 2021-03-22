@@ -10,7 +10,7 @@ function uploadImage(image) {
         Key: image.fileName,
         Body: buf,
         ContentEncoding: 'base64',
-        ContentType: 'image/png'
+        ContentType: 'image/jpg'
     };
     bucket.putObject(data, (err, data) => {
         if (err) {

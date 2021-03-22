@@ -13,7 +13,7 @@ window.addEventListener('load', () => {
                     document.getElementById('createCanvas').style.display = "block"
                 } 
                 else {
-                    const b64image = 'data:image/png;base64,' + latest.base64
+                    const b64image = 'data:image/jpg;base64,' + latest.base64
                     document.getElementById("latestImage").src = b64image
                     document.getElementById('createCaption').style.display = "block"
             }
@@ -139,7 +139,7 @@ function startup() {
 
 function save_image() {
     if (index !== -1) {
-        var dataUrl = canvas.toDataURL('image/png')
+        var dataUrl = canvas.toDataURL('image/jpg')
         $.ajax({
             type: 'POST',
             url: 'https://inspirations-trace.herokuapp.com/api/image',
