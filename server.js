@@ -10,7 +10,7 @@ const Amazon = require('./aws')
 
 //Variables
 const app = express();
-const port = 5500
+const port = 80
 
 
 //Set up the server
